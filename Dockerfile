@@ -1,6 +1,13 @@
 # INSTALL UBUNTU
 FROM node:12-buster
 
+#INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
+RUN apt-get update \
+ && apt-get install -y libaio1 \
+ && apt-get install -y build-essential \
+ && apt-get install -y unzip \
+ && apt-get install -y curl
+
 #ADD ORACLE INSTANT CLIENT
 RUN mkdir -p opt/oracle
 ADD ./oracle/linux/ .
